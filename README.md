@@ -54,9 +54,7 @@ Include screenshots of the application in action, highlighting the user interfac
 
 Contributions are welcome! Feel free to fork the project and submit pull requests.
 
-## License
 
-This project is licensed under the [MIT License](LICENSE).
 
 ---
 
