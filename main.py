@@ -47,14 +47,17 @@ def save():
     if len(website)==0 or len(password)==0:
         empty_popup=messagebox.showerror(title="Oops",message="PLease do not field empty..!! ")
     else:
-            with open("data.json","r") as datafile:
-                data=json.load(datafile)
-
+            try:
+                with open("data.json","r") as datafile:
+                    data=json.load(datafile)
+            except FileNotFoundError:
+                with open("data.json","w") as datafile:
+                    json.dump(data,datafile,indent=4)
+            else:
                 data.update(new_data)
-
-            with open("data.json","w") as datafile:
-                json.dump(data,datafile ,indent=4)
-
+                with open("data.json","w") as datafile:
+                    json.dump(data,datafile ,indent=4)
+            finally:
                 input_of_website.delete(0,END)
                 input_of_pass.delete(0,END)
 
